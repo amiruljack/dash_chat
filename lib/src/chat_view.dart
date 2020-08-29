@@ -374,6 +374,7 @@ class DashChatState extends State<DashChat> {
   bool showLoadMore = false;
   String get messageInput => _text;
   bool _initialLoad = true;
+  Timer timer;
 
   void onTextChange(String text) {
     if (visible) {
@@ -397,6 +398,11 @@ class DashChatState extends State<DashChat> {
       showLoadMore = value;
     });
   }
+  @override
+  void dispose() {
+    timer.cancel();
+    super.dispose();
+  }
 
   @override
   void initState() {
@@ -419,7 +425,7 @@ class DashChatState extends State<DashChat> {
           curve: Curves.easeInOut,
         )
         .whenComplete(() => {
-              Timer(Duration(milliseconds: 1000), () {
+              timer = Timer(Duration(milliseconds: 1000), () {
                 setState(() {
                   _initialLoad = false;
                 });

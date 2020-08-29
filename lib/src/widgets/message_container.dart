@@ -182,7 +182,7 @@ class MessageContainer extends StatelessWidget {
         style: TextStyle(
           color: message.user.color != null
               ? message.user.color
-              : isUser ? Colors.white70 : Colors.black87,
+              : isUser ? Colors.white : Colors.black87,
         ),
       );
   }

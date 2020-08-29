@@ -64,7 +64,7 @@ class AvatarContainer extends StatelessWidget {
                     child: Center(
                         child: Text(user.name == null || user.name.isEmpty
                             ? ''
-                            : user.name[0])),
+                            : user.name[0],style: TextStyle(color: Colors.white),)),
                   ),
                 ),
                 user.avatar != null && user.avatar.length != 0
