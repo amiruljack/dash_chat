@@ -144,7 +144,7 @@ class ChatInputToolbar extends StatelessWidget {
                 })
               else
                 IconButton(
-                  icon: Icon(Icons.send),
+                  icon: Icon(FontAwesomeIcons.paperPlane,size: 20,color: Color(0xff3f51b5),),
                   onPressed: alwaysShowSend || text.length != 0
                       ? () => _sendMessage(context, message)
                       : null,
