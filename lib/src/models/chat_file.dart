@@ -9,5 +9,10 @@ class ChatFile {
   String subtitle;
 
   ChatFile(
-      this.icon, this.typeID, this.type, this.title, this.subtitle, this.onTap);
+      {this.icon,
+      this.typeID,
+      this.type,
+      this.title,
+      this.subtitle,
+      this.onTap});
 }
