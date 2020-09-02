@@ -12,6 +12,7 @@ import 'package:transparent_image/transparent_image.dart';
 
 export 'package:intl/intl.dart' hide TextDirection;
 export 'package:flutter_parsed_text/flutter_parsed_text.dart';
+export 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 part 'src/chat_view.dart';
 part 'src/models/reply.dart';

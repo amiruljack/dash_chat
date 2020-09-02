@@ -205,4 +205,45 @@ class MessageContainer extends StatelessWidget {
     }
     return Container(width: 0, height: 0);
   }
+
+  Widget _buildMessageFile() {
+    if (message.file != null) {
+      return Padding(
+        padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
+        child: ListTile(
+          leading: Container(
+            width: 40.0,
+            height: 40.0,
+            decoration: new BoxDecoration(
+              shape: BoxShape.circle,
+              border: Border.all(color: Colors.grey),
+            ),
+            child: Icon(
+              // FontAwesome5.file_powerpoint,
+              Icons.ac_unit,
+              color: Colors.orange,
+            ),
+          ),
+          title: Text(
+            message.file["type"] ?? "",
+            style: TextStyle(
+              color: message.user.color != null
+                  ? message.user.color
+                  : isUser ? Colors.white : Colors.black87,
+            ),
+          ),
+          subtitle: Text(
+            message.file["title"] ?? "",
+            style: TextStyle(
+              color: message.user.color != null
+                  ? message.user.color
+                  : isUser ? Colors.white : Colors.black87,
+            ),
+          ),
+          onTap: message.onFileTap(message.file),
+        ),
+      );
+    }
+    return Container(width: 0, height: 0);
+  }
 }
