@@ -128,6 +128,7 @@ class MessageContainer extends StatelessWidget {
               _buildMessageImage()
             else
               _buildMessageText(),
+            if (message.file != null) _buildMessageFile(),
             if (buttons != null)
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
