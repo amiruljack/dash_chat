@@ -4,15 +4,15 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter/services.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:uuid/uuid.dart';
 import 'package:intl/intl.dart' hide TextDirection;
 import 'package:flutter_parsed_text/flutter_parsed_text.dart';
 import 'package:transparent_image/transparent_image.dart';
+import 'package:flutter_icons/flutter_icons.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 export 'package:intl/intl.dart' hide TextDirection;
 export 'package:flutter_parsed_text/flutter_parsed_text.dart';
-export 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 part 'src/chat_view.dart';
 part 'src/models/reply.dart';
@@ -20,6 +20,7 @@ part 'src/models/quick_replies.dart';
 part 'src/models/chat_user.dart';
 part 'src/models/chat_message.dart';
 part 'src/models/scroll_to_bottom_style.dart';
+part 'src/models/chat_file.dart';
 part 'src/widgets/custom_scroll_behaviour.dart';
 part 'src/chat_input_toolbar.dart';
 part 'src/message_listview.dart';

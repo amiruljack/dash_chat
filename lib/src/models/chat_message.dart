@@ -23,7 +23,7 @@ class ChatMessage {
 
   /// A [non-optional] parameter which is used to display proposal
   /// takes a [Sring] as a id
-  Map<String, dynamic> file;
+  ChatFile file;
 
   /// A [non-optional] parameter which is used to display images
   /// takes a [Sring] as a url
@@ -45,8 +45,6 @@ class ChatMessage {
   /// actions in message container.
   List<Widget> buttons;
 
-  Function(Map<String, dynamic>) onFileTap;
-
   ChatMessage(
       {String id,
       @required this.text,
@@ -58,8 +56,7 @@ class ChatMessage {
       String Function() messageIdGenerator,
       DateTime createdAt,
       this.customProperties,
-      this.buttons,
-      this.onFileTap}) {
+      this.buttons}) {
     this.createdAt = createdAt != null ? createdAt : DateTime.now();
     this.id = id != null
         ? id

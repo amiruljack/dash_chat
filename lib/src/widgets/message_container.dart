@@ -211,37 +211,57 @@ class MessageContainer extends StatelessWidget {
     if (message.file != null) {
       return Padding(
         padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
-        child: ListTile(
-          leading: Container(
-            width: 40.0,
-            height: 40.0,
-            decoration: new BoxDecoration(
-              shape: BoxShape.circle,
-              border: Border.all(color: Colors.grey),
+        child: Container(
+          decoration: new BoxDecoration(
+              border: Border.all(color: Colors.orangeAccent),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black54,
+                  blurRadius: 5.0,
+                  // has the effect of softening the shadow
+                  spreadRadius: 1.0,
+                  // has the effect of extending the shadow
+                  offset: Offset(
+                    5.0, // horizontal, move right 10
+                    5.0, // vertical, move down 10
+                  ),
+                )
+              ],
+              color: Colors.white,
+              borderRadius: new BorderRadius.only(
+                topLeft: const Radius.circular(10.0),
+                topRight: const Radius.circular(10.0),
+                bottomLeft: const Radius.circular(10.0),
+                bottomRight: const Radius.circular(10.0),
+              )),
+          child: ListTile(
+            trailing: Icon(Icons.chevron_right),
+            leading: Container(
+              width: 40.0,
+              height: 40.0,
+              decoration: new BoxDecoration(
+                shape: BoxShape.circle,
+                border: Border.all(color: Colors.orangeAccent),
+              ),
+              child: Icon(
+                message.file.icon,
+                color: Colors.orange,
+              ),
             ),
-            child: Icon(
-              // FontAwesome5.file_powerpoint,
-              Icons.ac_unit,
-              color: Colors.orange,
+            title: Text(
+              message.file.title ?? "",
+              style: TextStyle(
+                color: Colors.black87,
+              ),
             ),
+            subtitle: Text(
+              message.file.subtitle ?? "",
+              style: TextStyle(
+                color: Colors.black87,
+              ),
+            ),
+            onTap: message.file.onTap,
           ),
-          title: Text(
-            message.file["type"] ?? "",
-            style: TextStyle(
-              color: message.user.color != null
-                  ? message.user.color
-                  : isUser ? Colors.white : Colors.black87,
-            ),
-          ),
-          subtitle: Text(
-            message.file["title"] ?? "",
-            style: TextStyle(
-              color: message.user.color != null
-                  ? message.user.color
-                  : isUser ? Colors.white : Colors.black87,
-            ),
-          ),
-          onTap: message.onFileTap(message.file),
         ),
       );
     }
