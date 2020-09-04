@@ -236,29 +236,28 @@ class MessageContainer extends StatelessWidget {
               )),
           child: ListTile(
             trailing: Icon(Icons.chevron_right),
-            leading: Container(
-              width: 40.0,
-              height: 40.0,
-              decoration: new BoxDecoration(
-                shape: BoxShape.circle,
-                border: Border.all(color: Colors.orangeAccent),
-              ),
-              child: Icon(
-                message.file.icon,
-                color: Colors.orange,
+            leading: Transform.scale(
+              scale: 0.75,
+              child: Container(
+                width: 40.0,
+                height: 40.0,
+                decoration: new BoxDecoration(
+                  shape: BoxShape.circle,
+                  border: Border.all(color: Colors.orangeAccent),
+                ),
+                child: Icon(
+                  message.file.icon,
+                  color: Colors.orange,
+                ),
               ),
             ),
             title: Text(
               message.file.title ?? "",
-              style: TextStyle(
-                color: Colors.black87,
-              ),
+              style: TextStyle(color: Colors.black87, fontSize: 14),
             ),
             subtitle: Text(
               message.file.subtitle ?? "",
-              style: TextStyle(
-                color: Colors.black87,
-              ),
+              style: TextStyle(color: Colors.black87, fontSize: 12),
             ),
             onTap: message.file.onTap,
           ),

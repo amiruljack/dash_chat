@@ -14,5 +14,6 @@ class ChatFile {
       this.type,
       this.title,
       this.subtitle,
-      this.onTap});
+      this.onTap
+  });
 }
