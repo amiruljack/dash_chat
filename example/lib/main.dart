@@ -72,7 +72,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void onSend(ChatMessage message) {
-    print(message.toJson());
+    print(message.toMap());
     var documentReference = Firestore.instance
         .collection('messages')
         .document(DateTime.now().millisecondsSinceEpoch.toString());
@@ -80,7 +80,7 @@ class _MyHomePageState extends State<MyHomePage> {
     Firestore.instance.runTransaction((transaction) async {
       await transaction.set(
         documentReference,
-        message.toJson(),
+        message.toMap(),
       );
     });
     /* setState(() {
@@ -117,8 +117,7 @@ class _MyHomePageState extends State<MyHomePage> {
               );
             } else {
               List<DocumentSnapshot> items = snapshot.data.documents;
-              var messages =
-                  items.map((i) => ChatMessage.fromJson(i.data)).toList();
+              var messages = [];
               return DashChat(
                 key: _chatViewKey,
                 inverted: false,
@@ -220,7 +219,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         Firestore.instance.runTransaction((transaction) async {
                           await transaction.set(
                             documentReference,
-                            message.toJson(),
+                            message.toMap(),
                           );
                         });
                       }

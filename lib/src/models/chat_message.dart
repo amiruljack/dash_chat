@@ -64,4 +64,11 @@ class ChatMessage {
             ? messageIdGenerator()
             : Uuid().v4().toString();
   }
+
+  toMap() {
+    return {
+      "text": this.text,
+      "userID": this.user.uid,
+    };
+  }
 }
